@@ -4,9 +4,9 @@ class Solution {
     uint32_t ret = 0, power = 31;
     while (n != 0) {
         // while is more efficient than for loop. Consider n like 00000000.
-        ret += (n & 1) << power; // Extract bit at position 0, shift left to position 'power'
-        n = n >> 1; // Shift n right by 1 (discard rightmost bit, examine next bit)by 1)
-        power -= 1; // Move to next reversed position (31 → 30 → 29 ... → 0)
+        ret += (n & 1) << power; // (1) Extract bit at position 0, shift left to position 'power'
+        n = n >> 1; // (2) Shift n right by 1 (discard rightmost bit, examine next bit)by 1)
+        power -= 1; // (3) Move to next reversed position (31 → 30 → 29 ... → 0)
         }
     return ret;
   }
