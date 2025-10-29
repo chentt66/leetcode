@@ -9,6 +9,7 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
 // DFS solution
 class Solution {
 public:
@@ -25,17 +26,22 @@ private:
 };
 
 // BFS solution
-// std::queue< std::pair<TreeNode*, TreeNode*> > nodeQueue;
-// nodeQueue.push({root->left, root->right});
-// while (!nodeQueue.empty()) {
-//     std::pair currentNode = nodeQueue.front();
-//     nodeQueue.pop();
-//     TreeNode* leftNode = currentNode.first;
-//     TreeNode* rightNode = currentNode.second;
-//     if (!leftNode && !rightNode ) continue;
-//     if (!leftNode || !rightNode ) return false;
-//     if (leftNode->val != rightNode->val) return false;
-//     nodeQueue.push({leftNode->left, rightNode->right} );
-//     nodeQueue.push({leftNode->right, rightNode->left});
-// }
-// return true;
+class Solution {
+public:
+    bool isSymmetric(TreeNode* root) {
+    std::queue< std::pair<TreeNode*, TreeNode*> > nodeQueue;
+    nodeQueue.push({root->left, root->right});
+    while (!nodeQueue.empty()) {
+        std::pair currentNode = nodeQueue.front();
+        nodeQueue.pop();
+        TreeNode* leftNode = currentNode.first;
+        TreeNode* rightNode = currentNode.second;
+        if (!leftNode && !rightNode ) continue;
+        if (!leftNode || !rightNode ) return false;
+        if (leftNode->val != rightNode->val) return false;
+        nodeQueue.push({leftNode->left, rightNode->right} );
+        nodeQueue.push({leftNode->right, rightNode->left});
+    }
+    return true;
+    }
+};
