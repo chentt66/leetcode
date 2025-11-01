@@ -27,18 +27,18 @@ public:
 };
 
 // Track occurences: O(n) time, O(n) space
-// class Solution {
-// public:
-//     bool hasCycle(ListNode *head) {
-//         std::unordered_set<ListNode*> seenNodes;
-//         ListNode* currentNode = head;
-//         while (currentNode != nullptr) {
-//             if (seenNodes.find(currentNode) != seenNodes.end()) {
-//                 return true;
-//             }
-//             seenNodes.insert(currentNode);
-//             currentNode = currentNode->next;
-//         }
-//         return false;
-//     }
-// };
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        std::unordered_set<ListNode*> seenNodes;
+        ListNode* currentNode = head;
+        while (currentNode != nullptr) {
+            if (seenNodes.find(currentNode) != seenNodes.end()) {
+                return true;
+            }
+            seenNodes.insert(currentNode);
+            currentNode = currentNode->next;
+        }
+        return false;
+    }
+};
