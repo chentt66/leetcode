@@ -14,35 +14,6 @@
 class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
-        ListNode* current = head;
-        int length = 0;
-        // Traverse and get the length
-        while (current != nullptr) {
-            ++length;
-            current = current->next;
-        }
-        // edge case: remove the head
-        if (length == n) {
-            ListNode* newHead = head->next;
-            delete head;
-            return newHead;
-        }
-        // general case:
-        current = head;
-        for (int i = 0; i < length - n - 1; i++) {
-            current = current->next;
-        }
-        current->next = current->next->next;
-        return head;
-    }
-};
-
-// To remove a node, we need access to the node BEFORE it.
-// if n = length, we need to delete the head node, and there is no node before it in the linked list.
-// so we need to create a dummy node before the head to handle this case.
-class Solution {
-public:
-    ListNode* removeNthFromEnd(ListNode* head, int n) {
         // Traverse and get the length
         ListNode* current = head;
         int length = 0;
@@ -67,7 +38,9 @@ public:
     }
 };
 
-
+// To remove a node, we need access to the node BEFORE it.
+// if n = length, we need to delete the head node, and there is no node before it in the linked list.
+// so we need to create a dummy node before the head to handle this case.
 class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
