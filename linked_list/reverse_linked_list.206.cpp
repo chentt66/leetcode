@@ -26,18 +26,18 @@ public:
 };
 
 // Recursively: O(n) time, O(n) space
-// class Solution {
-// public:
-//     ListNode* reverseList(ListNode* head) {
-//         // base case: empty linked list or single node
-//         if (head == nullptr || head->next == nullptr) return head;
-//         // recursive case:
-//         ListNode* newHead = reverseList(head->next);
-//         head->next->next = head; // make the next node point back to the current node
-//         head->next = nullptr; // set current node's next to nullptr to avoid cycles
-//         return newHead;
-//         }
-// };
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        // base case: empty linked list or single node
+        if (head == nullptr || head->next == nullptr) return head;
+        // recursive case:
+        ListNode* newHead = reverseList(head->next);
+        head->next->next = head; // make the next node point back to the current node
+        head->next = nullptr; // set current node's next to nullptr to avoid cycles
+        return newHead;
+        }
+};
 
 /*
 Example visualization:
