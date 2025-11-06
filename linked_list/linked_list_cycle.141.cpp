@@ -13,8 +13,7 @@ class Solution {
 public:
     bool hasCycle(ListNode *head) {
         if (!head) return false;
-        ListNode* fast = head->next; // must be head->next!
-        // e.g. single node [1]. slow is pointed to head, fast is nullptr, no cycle
+        ListNode* fast = head->next; // must be head->next for while condition
         ListNode* slow = head;
         while (fast != slow) {
         if (fast == nullptr || fast->next == nullptr) return false;
