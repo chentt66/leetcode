@@ -7,6 +7,24 @@
  * };
  */
 
+
+// Floyd's Cycle Detection Algorithm
+// O(n) time, O(1) space
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        if (!head) return false;
+        ListNode* fast = head;
+        ListNode* slow = head;
+        while (fast != nullptr && fast->next != nullptr) {
+            fast = fast->next->next;
+            slow = slow->next;
+            if (fast == slow) return true;
+        }
+        return false;
+    }
+};
+
 // Floyd's Cycle Detection Algorithm
 // O(n) time, O(1) space
 class Solution {
@@ -16,13 +34,13 @@ public:
         ListNode* fast = head->next; // must be head->next for while condition
         ListNode* slow = head;
         while (fast != slow) {
-        if (fast == nullptr || fast->next == nullptr) return false;
-        // e.g. ... → 1 → 2 → 3 → null.  no cycle
-        // check conditions:
-        // !fast: suppose fast pointer at 2. fast->next->next is null.
-        // !fast->next: suppose fast pointer at 3. fast->next is null. fast->next->next will crash.
-        fast = fast->next->next;
-        slow = slow->next;
+            if (fast == nullptr || fast->next == nullptr) return false;
+            // e.g. ... → 1 → 2 → 3 → null.  no cycle
+            // check conditions:
+            // !fast: suppose fast pointer at 2. fast->next->next is null.
+            // !fast->next: suppose fast pointer at 3. fast->next is null. fast->next->next will crash.
+            fast = fast->next->next;
+            slow = slow->next;
         }
         return true;
     }
