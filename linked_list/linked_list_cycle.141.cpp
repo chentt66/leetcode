@@ -13,7 +13,7 @@
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
-        if (!head) return false;
+        // if (!head) return false; // optional check for null head
         ListNode* fast = head;
         ListNode* slow = head;
         while (fast != nullptr && fast->next != nullptr) {
@@ -30,7 +30,7 @@ public:
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
-        if (!head) return false;
+        if (!head) return false; // must check for null head
         ListNode* fast = head->next; // must be head->next for while condition
         ListNode* slow = head;
         while (fast != slow) {
