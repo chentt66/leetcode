@@ -1,4 +1,19 @@
 // Min-heap
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        std::priority_queue<int, vector<int>, std::greater<int>> minHeap; // min-heap
+        for (int num : nums) {
+            minHeap.push(num);
+            if (minHeap.size() > k) {
+                minHeap.pop();
+            }
+        }
+        return minHeap.top();
+    }
+};
+
+// Max-heap and reversing
 // time: O(n*logk)
 // space: O(k)
 class Solution {
