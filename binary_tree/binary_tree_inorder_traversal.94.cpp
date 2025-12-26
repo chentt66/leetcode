@@ -10,6 +10,30 @@
  * };
  */
 
+ // Iterative & Stack
+// O(n) time: visit every node once
+// O(n) space: worst case skewed treee
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        std::vector<int> res;
+        std::stack<TreeNode*> st;
+        TreeNode* curr = root;
+        while (curr != nullptr || !st.empty()) {
+            while (curr != nullptr) {
+                // traverse the left, and last in(leftmost) first out
+                st.push(curr);
+                curr = curr->left;
+            }
+            curr = st.top();
+            st.pop();
+            res.push_back(curr->val);
+            curr = curr->right; // !
+        }
+        return res;
+    }
+};
+
 // DFS
 // O(n) time because the recursive function is T(n)=2⋅T(n/2)+1.
 // O(n) space? The worst case space required is O(n), and in the average case it's O(logn) where n is number of nodes.
