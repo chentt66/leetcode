@@ -9,6 +9,30 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
+
+// Iterative method
+// O(n) time
+// O(n) space
+class Solution {
+public:
+    vector<int> preorderTraversal(TreeNode* root) {
+        std::vector<int> res;
+        if (!root) return res;
+        std::stack<TreeNode*> st;
+        st.push(root);
+        while (!st.empty()) {
+            TreeNode* curr = st.top();
+            st.pop();
+            res.push_back(curr->val);
+            if (curr->right != nullptr) st.push(curr->right);
+            if (curr->left != nullptr) st.push(curr->left);
+        }
+        return res;
+    }
+};
+
+
 class Solution {
 public:
     vector<int> preorderTraversal(TreeNode* root) {
