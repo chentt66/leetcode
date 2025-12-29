@@ -13,6 +13,7 @@ public:
 };
 
 // Manual reversal
+// the most difficult part is coming up with reverse...
 // O(n) time
 // O(1) space
 class Solution {
