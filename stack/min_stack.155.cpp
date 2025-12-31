@@ -1,3 +1,5 @@
+// O(1) time is the requirement.
+
 class MinStack {
 private:
         std::stack<int> mainStack;
@@ -23,12 +25,12 @@ public:
     
     int top() {
         if (!mainStack.empty()) return mainStack.top();
-        throw runtime_error("Stack is empty");
+        throw std::runtime_error("Stack is empty");
     }
     
     int getMin() {
         return minStack.top();
-        throw runtime_error("Stack is empty");
+        throw std::runtime_error("Stack is empty");
     }
 };
 
