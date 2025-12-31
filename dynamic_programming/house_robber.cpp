@@ -1,24 +1,23 @@
 // O(n) time
-// O(1) space
+// O(1) space: same idea as fibonacci
 class Solution {
 public:
     int rob(vector<int>& nums) {
+        int dpPrev2 = 0;
+        int dpPrev1 = 0;
         int n = nums.size();
-        // [robPrev2, rob1Prev1, nums[n], nums[n+1] ...]
-        int robPrev2 = 0;
-        int robPrev1 = 0;
-        for (int num : nums) {
-            int dp = max(robPrev2 + num, robPrev1);
-            robPrev2 = robPrev1;
-            robPrev1 = dp;
+        for (int i = 0; i < n; ++i) {
+            int val = max(nums[i] + dpPrev2, dpPrev1);
+            dpPrev2 = dpPrev1;
+            dpPrev1 = val;
         }
-        return robPrev1;
+        return dpPrev1;  
     }
 };
 // e.g nums = [100, 1, 1, 100]
 // --> rob house 1 and house 4.
 
-
+// O(n) time
 // O(n) space: easier to understand
 class Solution {
 public:
