@@ -12,10 +12,13 @@ class Solution:
             val1 = 0 if not l1 else l1.val
             val2 = 0 if not l2 else l2.val
             val_sum = val1 + val2 + carry
+            # note the quotient and remainder
             digit = val_sum % 10
             carry = val_sum // 10 # 0 or 1
             curr.next = ListNode(val = digit)
             curr = curr.next
-            if l1: l1 = l1.next
-            if l2: l2 = l2.next
+            if l1:
+                l1 = l1.next
+            if l2:
+                l2 = l2.next
         return dummy_node.next
