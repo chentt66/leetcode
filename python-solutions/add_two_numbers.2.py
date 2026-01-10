@@ -14,7 +14,7 @@ class Solution:
             val_sum = val1 + val2 + carry
             # note the quotient and remainder
             digit = val_sum % 10
-            carry = val_sum // 10 # 0 or 1
+            carry = val_sum // 10 # 0 or 1, note // in python is / in C++
             curr.next = ListNode(val = digit)
             curr = curr.next
             if l1:
