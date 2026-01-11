@@ -40,7 +40,6 @@ public:
         // number of rows and columns
         m = grid.size();
         n = grid[0].size();
-
         int islands = 0;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
