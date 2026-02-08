@@ -22,12 +22,7 @@ class Solution:
 from collections import deque
 class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
-        # nodeQueue = []
-        # nodeQueue.append((p, q))
-        
         nodeQueue = deque([(p, q)])
-        # nodeQueue = deque()
-        # nodeQueue.append((p,q))
         while nodeQueue:
             # node1, node2 = nodeQueue.pop(0)
             node1, node2 = nodeQueue.popleft()

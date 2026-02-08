@@ -1,31 +1,6 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-
 // BFS: BFS is intuitive for "level by level"
 // O(n) time?
 // O(n) space
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-
-
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -49,7 +24,7 @@ public:
         std::queue<TreeNode*> q;
         q.push(root);
         while (!q.empty()) {
-            int levelSize = q.size(); // fix here to reduced memory operations.
+            int levelSize = q.size(); // fix here to reduce memory operations.
             std::vector<int> levelValues;
             for (int i = 0; i < levelSize; ++i) {
                 TreeNode* node = q.front();

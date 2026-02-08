@@ -1,24 +1,5 @@
 class Solution:
     def maxArea(self, height: List[int]) -> int:
-        n = len(height)
-        left = 0
-        right = n - 1
-        water = 0
-        max_water = 0
-        while left < right:
-            width = right - left
-            if height[left] < height[right]:
-                water = height[left] * width
-                # move the pointer
-                left += 1
-            else:
-                water = height[right] * width
-                right -= 1
-            max_water = max(max_water, water)
-        return max_water
-
-class Solution:
-    def maxArea(self, height: List[int]) -> int:
         max_area = 0
         left = 0
         right = len(height) - 1
@@ -37,3 +18,22 @@ class Solution:
 
 # When widthn becomes smaller, I need a higher height to offset: move the index of the shorter bar one step towards the middle. If the new bar is higher than the previous shorter bar, the new area MAY become larger.
 # There is always a trade-off between (longer width * current height) and (sure shorter width * potential higher height )
+
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        n = len(height)
+        left = 0
+        right = n - 1
+        water = 0
+        max_water = 0
+        while left < right:
+            width = right - left
+            if height[left] < height[right]:
+                water = height[left] * width
+                # move the pointer
+                left += 1
+            else:
+                water = height[right] * width
+                right -= 1
+            max_water = max(max_water, water)
+        return max_water
