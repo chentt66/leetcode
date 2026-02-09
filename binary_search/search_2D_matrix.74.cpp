@@ -1,8 +1,9 @@
-// 1D to 2D
-// row = index / n
-// col = index % n
+// Matrix Indexing
+// 1D to 2D:
+// index / n count full rows
+// index % n count remainder steps
 
-// 2D to 1D
+// 2D to 1D:
 // index = row * n + col
 
 // O(log(m+n)) time
@@ -18,8 +19,8 @@ public:
         int right = m * n - 1;
         while (left <= right) {
             int mid = left + (right - left) / 2;
-            int r = mid / n;
-            int c = mid % n;
+            int r = mid / n; // use an example
+            int c = mid % n; // use an example
             if (matrix[r][c] == target) return true;
             if (matrix[r][c] < target) {
                 left = mid + 1;

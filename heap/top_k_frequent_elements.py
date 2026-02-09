@@ -32,5 +32,9 @@ class Solution:
                     return res
                 res.append(num)
         return res
-    
 
+# n = 3
+# [[] for _ in range(n)] 
+# [[], [], []]
+# [[] * n]
+# [[]]
