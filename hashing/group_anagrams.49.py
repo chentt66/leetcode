@@ -3,7 +3,7 @@ class Solution:
         from collections import defaultdict
         groups = defaultdict(list)
         for word in strs:
-            key = ''.join(sorted(word)) # built in sorted for any iterable
+            key = ''.join(sorted(word)) # built in sorted() for any iterable, returns a new list
             groups[key].append(word) #[:] ?
         return list(groups.values())
     
