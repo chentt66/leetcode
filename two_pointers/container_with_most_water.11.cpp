@@ -5,8 +5,7 @@ public:
         int right = height.size() - 1;
         int max_area = 0;
         while ( left < right ) {
-            int width = right - left;
-            max_area = max(max_area, width * min(height[left], height[right]));
+            max_area = max(max_area, (right - left) * min(height[left], height[right]));
             if ( height[left] <= height[right] ) {
                 left++;
             } else {

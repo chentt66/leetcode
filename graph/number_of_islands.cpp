@@ -12,14 +12,14 @@ private:
     void bfs(std::vector<vector<char>>& grid, int i, int j) {
         std::queue<std::pair<int, int>> q; // queue to visit cells in BFS
         q.push({i,j});
-        grid[i][j] = '0'; // must mark the starting cell as visited to prevent revisiting
+        grid[i][j] = '#'; // must mark the starting cell as visited to prevent revisiting
         
         while (!q.empty()) {
             auto [x, y] = q.front(); // structured binding, ok since C++ 17
             q.pop();
             // check 4 directions
             for (const auto& direction : directions) {
-                // previous: for (auto direction : directions) is a copy
+                // previous method: for (auto direction : directions) is a copy
                 int adjx = x + direction[0];
                 int adjy = y + direction[1];
                 // check boundaries and whether the cell represent a land('1')
@@ -27,7 +27,7 @@ private:
                     && adjy >= 0 && adjy < n
                     && grid[adjx][adjy] == '1'
                 ) {
-                    grid[adjx][adjy] = '0'; // mark as visited
+                    grid[adjx][adjy] = '#'; // mark as visited
                     q.push({adjx, adjy});
                 }
             }

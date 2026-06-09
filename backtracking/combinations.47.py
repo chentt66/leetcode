@@ -4,7 +4,7 @@ class Solution:
         def backtrack(current, start):
             if len(current) == k:
                 cnk.append(current[:])
-                return
+                return # still works without early return
             for i in range(start, n+1):
                 current.append(i)
                 backtrack(current, i+1)

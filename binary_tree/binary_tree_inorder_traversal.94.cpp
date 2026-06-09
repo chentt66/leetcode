@@ -36,20 +36,20 @@ public:
 
 // DFS
 // O(n) time because the recursive function is T(n)=2⋅T(n/2)+1.
-// O(n) space? The worst case space required is O(n), and in the average case it's O(logn) where n is number of nodes.
+// O(n) space
 class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {
-        std::vector<int> result;
-        inorderHelper(root, result);
-        return result;
+        std::vector<int> inorder;
+        inorderDFS(root, inorder);
+        return inorder;
     }
 private:
-    void inorderHelper(TreeNode* node, std::vector<int>& result) {
+    void inorderDFS(TreeNode* node, std::vector<int>& inorder) {
         if (!node) return;
-        // left to root to right
-        inorderHelper(node->left, result);
-        result.push_back(node->val);
-        inorderHelper(node->right, result);
+        // left -> mid -> right
+        inorderDFS(node->left, inorder);
+        inorder.push_back(node->val);
+        inorderDFS(node->right, inorder);
     }
 };

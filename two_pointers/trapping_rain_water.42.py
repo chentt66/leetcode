@@ -1,6 +1,6 @@
-# Water[i] = min(LeftMax, RightMax) - height[i]
-
 # My solution: Two pointers
+# O(n) time
+# O(1) space
 class Solution:
     def trap(self, height: List[int]) -> int:
         water = 0
@@ -21,6 +21,7 @@ class Solution:
                 right -= 1
         return water
 
+
 # Two pointers
 # O(n) time
 # O(1) space
@@ -37,24 +38,6 @@ class Solution:
                 water += h_left_max - height[left]
                 left += 1
             else:
-                water += h_right_max - height[right]
-                right -= 1
-        return water
-
-# Two pointers
-class Solution:
-    def trap(self, height: List[int]) -> int:
-        water = 0
-        left = 0
-        right = len(height) - 1
-        h_left_max = h_right_max = 0
-        while left < right:
-            if height[left] < height[right]:
-                h_left_max = max(height[left], h_left_max)
-                water += h_left_max - height[left]
-                left += 1
-            else:
-                h_right_max = max(height[right], h_right_max)
                 water += h_right_max - height[right]
                 right -= 1
         return water

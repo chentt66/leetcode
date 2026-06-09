@@ -1,3 +1,5 @@
+#include <stack>
+
 // Two stacks
 // O(1) time
 // O(n) space

@@ -1,4 +1,6 @@
 # Min heap
+# O(n*logk) time
+# O(n) space
 import heapq
 from collections import Counter
 class Solution:
@@ -14,18 +16,19 @@ class Solution:
                 heapq.heappop(min_heap)
         return [num for freq, num in min_heap]
 
+
 # Bucket Sorts
+# O(n) time: counting is O(n), building buckets is O(n), iterating buckets is O(n)
+# O(n) space
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         res = []
         n = len(nums)
-        num_count = {}
-        for num in nums:
-            num_count[num] = num_count.get(num, 0) + 1
-        buckets = [[] for i in range(n+1)]
-        for num, cnt in num_count.items():
+        from collections import Counter
+        count = Counter(nums)
+        buckets = [ [] for i in range(n+1) ]
+        for num, cnt in count.items():
             buckets[cnt].append(num)
-
         for i in range(n, -1, -1):
             for num in buckets[i]:
                 if len(res) == k:
@@ -33,8 +36,22 @@ class Solution:
                 res.append(num)
         return res
 
+
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        from collections import Counter
+        count = Counter(nums)
+        arr = []
+        for num, cnt in count.items():
+            arr.append([cnt, num])
+        arr.sort()
+        res = []
+        while len(res) < k:
+            res.append(arr.pop()[1])
+        return res
+
+
+# Note:
 # n = 3
-# [[] for _ in range(n)] 
-# [[], [], []]
-# [[] * n]
-# [[]]
+# [[] for _ in range(n)]  --> [[], [], []]
+# [[] * n] --> [[]]

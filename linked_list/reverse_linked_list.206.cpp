@@ -9,17 +9,19 @@
  * };
  */
 
-// Iteratively: O(n) time, O(1) space
+// Iteratively
+// O(n) time
+// O(1) space
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
         ListNode* prev = nullptr; // !
         ListNode* curr = head;
         while (curr != nullptr) {
-            ListNode* nextTemp = curr->next;
+            ListNode* next_node = curr->next;
             curr->next = prev;
             prev = curr;
-            curr = nextTemp;
+            curr = next_node;
         }
         return prev;
     }
