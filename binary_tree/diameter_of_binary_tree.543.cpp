@@ -36,7 +36,6 @@ public:
         dfsHeight(root, diameter);
         return diameter;
     }
-
 private:
     // Returns the height of the subtree rooted at node.
     // Along the way, updates maxDiameter to be the largest sum of

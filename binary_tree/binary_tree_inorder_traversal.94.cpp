@@ -12,7 +12,7 @@
 
  // Iterative & Stack
 // O(n) time: visit every node once
-// O(n) space: worst case skewed treee
+// O(n) space
 class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {

@@ -1,4 +1,3 @@
-
 # Backtracking (optimal)
 # O(m*n*4^L) time
 # O(L) space: 递归栈深度等于单词长度
@@ -11,7 +10,6 @@ class Solution(object):
         """
         m, n = len(board), len(board[0])
         l = len(word)
-        directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
         def dfs(x, y, loc):
             if loc == l:
                 return True

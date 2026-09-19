@@ -1,5 +1,3 @@
-
-
 # Two pointers
 # O(n) time
 # O(n) space
@@ -8,7 +6,7 @@ class Solution:
         n = len(nums)
         left = 0
         right = n - 1
-        result = [pivot] * n
+        result = [pivot] * n # great!
         for i in range(n):
             if nums[i] < pivot:
                 result[left] = nums[i]
@@ -18,7 +16,6 @@ class Solution:
                 right -= 1
         return result
     
-
 
 class Solution:
     def pivotArray(self, nums: List[int], pivot: int) -> List[int]:
@@ -31,7 +28,6 @@ class Solution:
             else:
                 greater.append(num)
         return less + equal + greater
-    
 
 
 # raw solution ...

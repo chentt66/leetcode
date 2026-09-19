@@ -13,7 +13,7 @@ class Solution {
               cnk.push_back(current);
               return;
           }
-          for (int i = start; i < n+1; i++) {
+          for (int i = start; i < n + 1; i++) {
               current.push_back(i);
               backtrack(cnk, current, i+1, n, k);
               current.pop_back();

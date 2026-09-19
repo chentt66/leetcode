@@ -10,7 +10,7 @@
  * };
  */
 
-// DFS solution
+// DFS
 class Solution {
 public:
     bool isSymmetric(TreeNode* root) {
@@ -25,7 +25,7 @@ private:
     }
 };
 
-// BFS solution
+// BFS
 class Solution {
 public:
     bool isSymmetric(TreeNode* root) {
